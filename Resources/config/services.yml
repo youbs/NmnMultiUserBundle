@@ -1,19 +1,19 @@
 services:
-    
+
     # custom fosuser registration form handler
     nmn_user.form.handler.registration:
         class: Nmn\MultiUserBundle\Form\Handler\RegistrationFormHandler
         arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator.default", "@nmn_user.manager.user_discriminator"]
         scope: request
         public: false
-    
+
     # custom fosuser profile form handler
     nmn_user.form.handler.profile:
         class: Nmn\MultiUserBundle\Form\Handler\ProfileFormHandler
         arguments: ["@fos_user.profile.form", "@request", "@fos_user.user_manager", "@nmn_user.manager.user_discriminator"]
         scope: request
         public: false
-    
+
     # class to discriminate users types
     nmn_user.manager.user_discriminator:
         class:     Nmn\MultiUserBundle\Manager\UserDiscriminator
@@ -21,7 +21,7 @@ services:
         tags:
             - { name: kernel.event_listener, event: security.interactive_login }
             - { name: kernel.event_listener, event: security.manual_login }
-                
+
     # alias
     nmn_user_registration_form_handler:
         alias: nmn_user.form.handler.registration
@@ -29,5 +29,4 @@ services:
         alias: nmn_user.form.handler.profile
     nmn_user_discriminator:
         alias: nmn_user.manager.user_discriminator
-    
-    
+

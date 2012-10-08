@@ -16,9 +16,9 @@ use Nmn\MultiUserBundle\Manager\UserDiscriminator;
  * @author leonardo proietti (leonardo@netmeans.net)
  * @author eux (eugenio@netmeans.net)
  */
-class OrmUserManager extends BaseUserManager
+class MongoDBUserManager extends BaseUserManager
 {
-    protected $em;
+    protected $dm;
     protected $class;
     protected $userDiscriminator;
 

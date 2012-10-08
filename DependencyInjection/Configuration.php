@@ -20,8 +20,8 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('nmn_user');
 
-        $supportedDrivers = array('orm');
-        
+        $supportedDrivers = array('orm', 'mongodb');
+
         $rootNode
             ->children()
                 ->scalarNode('db_driver')
